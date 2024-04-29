@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/*共通部分
+-------------------------------*/
+html{
+    font-size: 100%;
+}
+body{
+    font-family:"sans-serif";
+    line-height:1.7;
+    color:#E8EAED;
+    background-color:#202124
+}
+a{
+    text-decoration: none;
+}
+
+/*レイアウト*/
+.wrapper{
+    max-width:1120px;
+    margin:auto;
+    padding: 0 1.5rem;
+}
+.cover{
+
+    background-size:cover;
+}
+/*ヘッダー*/
+.page-header{
+    padding-top:.5rem;
+}
+.main-nav{
+    display:flex;
+    justify-content:flex-end;
+    list-style:none;
+    font-size:1.5rem;
+    gap:2rem
+}
+.main-nav a{
+    color:#E8EAED
+}
