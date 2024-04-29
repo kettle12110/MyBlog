@@ -37,5 +37,18 @@ a{
     gap:2rem
 }
 .main-nav a{
+    color:#9AA0A6
+}
+.main-nav a:hover{
     color:#E8EAED
+}
+/*見出し*/
+.page-title{
+    font-size:3rem;
+    text-align:left;
+    margin-top:2rem;
+    margin-bottom:-1.5rem
+}
+.explain-title{
+    color:#9AA0A6
 }
