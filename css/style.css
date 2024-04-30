@@ -52,3 +52,24 @@ a{
 .explain-title{
     color:#9AA0A6
 }
+/*記事*/
+.articles{
+    font-size:1.5rem;
+    width:100%;
+    max-width:544px;
+    border-spacing:0;
+}
+.articles td{
+    border-bottom:1px solid #E8EAED;
+    padding: 1rem 0;
+}
+.articles td a{
+    display:block;
+    color:#E8EAED
+}
+/*フッター*/
+.copyright{
+    text-align:center;
+    padding:2rem 0;
+    margin-top:6rem;
+}
