@@ -68,6 +68,9 @@ a{
     display:block;
     color:#E8EAED
 }
+.date{
+    text-align:right
+}
 /*記事本文*/
 /*フッター*/
 .copyright{
