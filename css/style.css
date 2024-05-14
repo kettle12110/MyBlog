@@ -7,18 +7,31 @@ html{
 }
 body{
     font-family:"sans-serif";
-    line-height:1.7;
+    line-height:1.7
+}
+.main-color-dark{
     color:#E8EAED;
     background-color:#202124
+}
+.sub-color-dark{
+    color:#9AA0A6
+}
+.sub-color-dark:hover{
+    color:#E8EAED
+}
+.main-color-light{
+    color:black;
+    background-color:white
+}
+.sub-color-light{
+    color:white
+}
+.sub-color-light:hover{
+    color:black
 }
 a{
     text-decoration: none;
 }
-.lighttheme{
-    color:black;
-    background-color:white
-}
-
 /*レイアウト*/
 .wrapper{
     max-width:1120px;
@@ -37,12 +50,6 @@ a{
     list-style:none;
     font-size:1.5rem;
     gap:2rem
-}
-.main-nav a{
-    color:#9AA0A6
-}
-.main-nav a:hover{
-    color:#E8EAED
 }
 /*ボタン*/
 #btn{
@@ -63,26 +70,22 @@ a{
     margin-bottom:-1.5rem
 }
 .title-information{
-    color:#9AA0A6;
     margin-bottom:3rem
 }
 /*記事一覧*/
 .articles{
     width:100%;
     margin:auto;
-    border-bottom:1px solid #E8EAED;
-    border-color:#9AA0A6;
+    border-bottom:1px solid;
     padding: 0.5rem 0;
 }
 .article-title{
-    color:#E8EAED;
     font-size:1.5rem;
     padding: 0 1rem
 }
 .article-date{
     font-size:1rem;
     text-align:right;
-    color:#9AA0A6;
 }
 /*記事本文*/
 
