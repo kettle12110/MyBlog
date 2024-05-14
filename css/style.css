@@ -14,6 +14,10 @@ body{
 a{
     text-decoration: none;
 }
+.lighttheme{
+    color:black;
+    background-color:white
+}
 
 /*レイアウト*/
 .wrapper{
@@ -41,6 +45,17 @@ a{
 }
 .main-nav a:hover{
     color:#E8EAED
+}
+/*ボタン*/
+#btn{
+    background:#0bd;
+    padding:1rem;
+    margin-bottom:2rem;
+    font-size:1rem;
+    color:#fff;
+    border-radius:8px;
+    border:0;
+    cursor:pointer;
 }
 /*見出し*/
 .page-title{

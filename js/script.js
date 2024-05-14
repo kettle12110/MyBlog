@@ -4,6 +4,6 @@ btn.addEventListener('click',()=>{
     if(btn.textContent ==='ライトモードにする'){
         btn.textContent ='ダークモードにする'
     }else{
-        btn.textContent='ダークモードにする';
+        btn.textContent='ライトモードにする';
         }
 });
