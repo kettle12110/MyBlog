@@ -18,11 +18,9 @@ a{
 /*レイアウト*/
 .wrapper{
     max-width:1120px;
-    margin:auto;
     padding: 3rem 30rem;
 }
 .cover{
-
     background-size:cover;
 }
 /*ヘッダー*/
@@ -55,23 +53,24 @@ a{
 }
 /*記事一覧*/
 .articles{
-    font-size:1.5rem;
     width:100%;
-    border-spacing:0;
-}
-.articles td{
+    margin:auto;
     border-bottom:1px solid #E8EAED;
     border-color:#9AA0A6;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
-.articles td a{
-    display:block;
-    color:#E8EAED
+.article-title{
+    color:#E8EAED;
+    font-size:1.5rem;
+    padding: 0 1rem
 }
-.date{
-    text-align:right
+.article-date{
+    font-size:1rem;
+    text-align:right;
+    color:#9AA0A6;
 }
 /*記事本文*/
+
 /*フッター*/
 .copyright{
     text-align:center;
