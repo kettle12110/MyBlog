@@ -27,3 +27,24 @@ btn.addEventListener('click', () => {
         };
     }
 );
+
+const lists=[
+{
+    Title:'1つ目の記事',
+    Date:'2024/06/01',
+    Tag:'test'
+},
+{
+    Title:'2つ目の記事',
+    Date:'2024/07/01',
+    Tag:'test'
+}
+]
+
+const article = document.querySelector('#article');
+const content=
+`<a class="articles main-color-dark" href="${lists[1].Title}.html">
+<span class="article-title main-color-dark">${lists[1].Title}</span>
+<span class="article-date sub-color-dark">${lists[1].Date}</span>
+</a>`;
+article.textContent=content;
