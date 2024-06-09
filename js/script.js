@@ -1,3 +1,14 @@
+const heading =document.querySelector('.page-title');
+const keyframes={
+    translate:['200px 0',0],
+};
+const options={
+    duration:2000,
+    easing:'ease',
+};
+heading.animate(keyframes,options);
+
+
 //色変える
 function replaceClass(currentColor, ChangedColor){
 document.querySelectorAll('.' + currentColor).forEach(element => {
