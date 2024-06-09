@@ -14,6 +14,10 @@ document.querySelectorAll('.' + currentColor).forEach(element => {
 });
 }
 
+if(localStorage.getItem('lightmode',true)){
+    replaceClass('main-color-dark', 'main-color-light')
+    replaceClass('sub-color-dark', 'sub-color-light')
+}
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
     if (btn.textContent === 'ライトモードにする') {
@@ -21,10 +25,12 @@ btn.addEventListener('click', () => {
         // 他の要素のクラスを置き換える
         replaceClass('main-color-dark', 'main-color-light')
         replaceClass('sub-color-dark', 'sub-color-light')
+        localStorage.setItem('lightmode','true')
     } else {
         btn.textContent = 'ライトモードにする';
         replaceClass('main-color-light', 'main-color-dark')
         replaceClass('sub-color-light', 'sub-color-dark')
+        localStorage.removeItem('lightmode','true')
         };
     }
 );
@@ -32,13 +38,13 @@ btn.addEventListener('click', () => {
 //記事一覧の表示
 const lists=[
 {
-    Link:'1つ目の記事.html',
+    Link:'1つ目の記事',
     Title:'1つ目の記事',
     Date:'2024/06/01',
     Tag:'test'
 },
 {
-    Link:'2つ目の記事.html',
+    Link:'test.html',
     Title:'2つ目の記事',
     Date:'2024/07/01',
     Tag:'test'
@@ -48,7 +54,7 @@ const lists=[
 const article = document.querySelector('.mokuzi');
 for(let i=0; i<lists.length; i++){
 const content = 
-`<a class="articles main-color-dark" href="${lists[i].Title}.html">
+`<a class="articles main-color-dark" href="${lists[i].Link}.html">
 <span class="article-title main-color-dark">${lists[i].Title}</span>
 <span class="article-date sub-color-dark">${lists[i].Date}</span>
 </a>`;
