@@ -7,6 +7,7 @@ const getScrollPercent =()=>{
 }
 window.addEventListener('scroll',getScrollPercent);
 
+//色変える
 function replaceClass(currentColor, ChangedColor){
 document.querySelectorAll('.' + currentColor).forEach(element => {
     element.classList.replace(currentColor, ChangedColor);
@@ -28,23 +29,28 @@ btn.addEventListener('click', () => {
     }
 );
 
+//記事一覧の表示
 const lists=[
 {
+    Link:'1つ目の記事.html',
     Title:'1つ目の記事',
     Date:'2024/06/01',
     Tag:'test'
 },
 {
+    Link:'2つ目の記事.html',
     Title:'2つ目の記事',
     Date:'2024/07/01',
     Tag:'test'
 }
 ]
 
-const article = document.querySelector('#article');
-const content=
-`<a class="articles main-color-dark" href="${lists[1].Title}.html">
-<span class="article-title main-color-dark">${lists[1].Title}</span>
-<span class="article-date sub-color-dark">${lists[1].Date}</span>
+const article = document.querySelector('.mokuzi');
+for(let i=0; i<lists.length; i++){
+const content = 
+`<a class="articles main-color-dark" href="${lists[i].Title}.html">
+<span class="article-title main-color-dark">${lists[i].Title}</span>
+<span class="article-date sub-color-dark">${lists[i].Date}</span>
 </a>`;
-article.textContent=content;
+article.insertAdjacentHTML('beforeEnd',content);
+}
