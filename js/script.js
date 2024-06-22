@@ -16,24 +16,45 @@ document.querySelectorAll('.' + currentColor).forEach(element => {
 });
 }
 
+//記事の情報を宣言する
+const lists=[
+    {
+        Link:'1つ目の記事',
+        Title:'1つ目の記事',
+        Date:'2024/06/01',
+        Tag:'test'
+    },
+    {
+        Link:'test.html',
+        Title:'2つ目の記事',
+        Date:'2024/07/01',
+        Tag:'test'
+    },
+    {
+        Link:'test.html',
+        Title:'2つ目の記事',
+        Date:'2024/07/01',
+        Tag:'testt2'
+    }
+    ]
+    
+// タグの数を集計する
+const tagCounts = lists.reduce((acc, { Tag }) => {
+    acc[Tag] = (acc[Tag] || 0) + 1;
+    return acc;
+}, {});
+
+// タグボタンを作る
+if (window.location.pathname.endsWith('explore.html')) {
+    const article = document.querySelector('.tagbtn');
+    Object.entries(tagCounts).forEach(([tag, count]) => {
+        const content = `<button id="tagbtn">${tag} (${count})</button>`;
+        article.insertAdjacentHTML('beforeEnd', content);
+    });
+}
+
 //記事一覧の表示
 if(window.location.pathname.endsWith('index.html')){
-
-const lists=[
-{
-    Link:'1つ目の記事',
-    Title:'1つ目の記事',
-    Date:'2024/06/01',
-    Tag:'test'
-},
-{
-    Link:'test.html',
-    Title:'2つ目の記事',
-    Date:'2024/07/01',
-    Tag:'test'
-}
-]
-
 const article = document.querySelector('.mokuzi');
 for(let i=0; i<lists.length; i++){
 const content = 
@@ -55,7 +76,7 @@ btn.addEventListener('click', () => {
         btn.textContent = 'ライトモードにする';
         replaceClass('main-color-light', 'main-color-dark')
         replaceClass('sub-color-light', 'sub-color-dark')
-        localStorage.removeItem('lightmode','true')
+        localStorage.removeItem('lightmode')
         };
     }
 );
