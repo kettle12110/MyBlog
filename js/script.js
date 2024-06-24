@@ -32,9 +32,9 @@ const lists=[
     },
     {
         Link:'test.html',
-        Title:'2つ目の記事',
+        Title:'3つ目の記事',
         Date:'2024/07/01',
-        Tag:'testt2'
+        Tag:'test2'
     }
     ]
     
@@ -46,13 +46,39 @@ const tagCounts = lists.reduce((acc, { Tag }) => {
 
 // タグボタンを作る
 if (window.location.pathname.endsWith('explore.html')) {
-    const article = document.querySelector('.tagbtn');
+    const article = document.querySelector('#tagbtn');
     Object.entries(tagCounts).forEach(([tag, count]) => {
-        const content = `<button id="tagbtn">${tag} (${count})</button>`;
+        const content = `<a class="tagbtn" href='index2.html';">${tag} (${count})</a>`;
         article.insertAdjacentHTML('beforeEnd', content);
     });
 }
 
+    // タグボタンにクリックイベントを追加
+    document.querySelectorAll('.tagbtn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            // クリックされたタグを取得
+            const clickedTag = event.target.textContent.split(' ')[0];
+            // クリックされたタグをローカルストレージに保存
+            localStorage.setItem('clickedTag', clickedTag);
+    });
+});
+
+if(window.location.pathname.endsWith('index2.html')){
+    const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
+    localStorage.removeItem('clickedTag')
+    const article = document.querySelector('.mokuzi');
+    // フィルタリングされたリストを生成
+    const filteredLists = lists.filter(list => list.Tag === savedTag);
+    // フィルタリングされた記事のみを表示
+    filteredLists.forEach(list => {
+        const content = 
+        `<a class="articles main-color-dark" href="${list.Link}.html">
+        <span class="article-title main-color-dark">${list.Title}</span>
+        <span class="article-date sub-color-dark">${list.Date}</span>
+        </a>`;
+        article.insertAdjacentHTML('beforeEnd', content);
+    });
+}
 //記事一覧の表示
 if(window.location.pathname.endsWith('index.html')){
 const article = document.querySelector('.mokuzi');

@@ -62,7 +62,7 @@ a{
     border:0;
     cursor:pointer;
 }
-#tagbtn{
+.tagbtn{
     background:#0bd;
     padding:0.5rem;
     margin-bottom:2rem;
