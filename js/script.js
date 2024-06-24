@@ -1,3 +1,4 @@
+//タイトルを動かす
 const heading =document.querySelector('.page-title');
 const keyframes={
     translate:['200px 0',0],
@@ -37,7 +38,7 @@ const lists=[
         Tag:'test2'
     }
     ]
-    
+
 // タグの数を集計する
 const tagCounts = lists.reduce((acc, { Tag }) => {
     acc[Tag] = (acc[Tag] || 0) + 1;
@@ -71,7 +72,7 @@ if(window.location.pathname.endsWith('index2.html')){
     const filteredLists = lists.filter(list => list.Tag === savedTag);
     // フィルタリングされた記事のみを表示
     filteredLists.forEach(list => {
-        const content = 
+        const content =
         `<a class="articles main-color-dark" href="${list.Link}.html">
         <span class="article-title main-color-dark">${list.Title}</span>
         <span class="article-date sub-color-dark">${list.Date}</span>
@@ -83,7 +84,7 @@ if(window.location.pathname.endsWith('index2.html')){
 if(window.location.pathname.endsWith('index.html')){
 const article = document.querySelector('.mokuzi');
 for(let i=0; i<lists.length; i++){
-const content = 
+const content =
 `<a class="articles main-color-dark" href="${lists[i].Link}.html">
 <span class="article-title main-color-dark">${lists[i].Title}</span>
 <span class="article-date sub-color-dark">${lists[i].Date}</span>
