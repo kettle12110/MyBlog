@@ -49,7 +49,7 @@ const tagCounts = lists.reduce((acc, { Tag }) => {
 if (window.location.pathname.endsWith('explore.html')) {
     const article = document.querySelector('#tagbtn');
     Object.entries(tagCounts).forEach(([tag, count]) => {
-        const content = `<a class="tagbtn" href='index2.html';">${tag} (${count})</a>`;
+        const content = `<a class="tagbtn" href='index.html';">${tag} (${count})</a>`;
         article.insertAdjacentHTML('beforeEnd', content);
     });
 }
@@ -64,7 +64,7 @@ if (window.location.pathname.endsWith('explore.html')) {
     });
 });
 
-if(window.location.pathname.endsWith('index2.html')){
+if(localStorage.getItem('clickedTag')){
     const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
     localStorage.removeItem('clickedTag')
     const article = document.querySelector('.mokuzi');
@@ -79,34 +79,35 @@ if(window.location.pathname.endsWith('index2.html')){
         </a>`;
         article.insertAdjacentHTML('beforeEnd', content);
     });
-}
-//記事一覧の表示
-if(window.location.pathname.endsWith('index.html')){
-const article = document.querySelector('.mokuzi');
-for(let i=0; i<lists.length; i++){
-const content =
-`<a class="articles main-color-dark" href="${lists[i].Link}.html">
-<span class="article-title main-color-dark">${lists[i].Title}</span>
-<span class="article-date sub-color-dark">${lists[i].Date}</span>
-</a>`;
-article.insertAdjacentHTML('beforeEnd',content);
-}
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-    if (btn.textContent === 'ライトモードにする') {
-        btn.textContent = 'ダークモードにする';
-        // 他の要素のクラスを置き換える
-        replaceClass('main-color-dark', 'main-color-light')
-        replaceClass('sub-color-dark', 'sub-color-light')
-        localStorage.setItem('lightmode','true')
-    } else {
-        btn.textContent = 'ライトモードにする';
-        replaceClass('main-color-light', 'main-color-dark')
-        replaceClass('sub-color-light', 'sub-color-dark')
-        localStorage.removeItem('lightmode')
-        };
+    localStorage.removeItem('clickedTag');
+} else {
+    //記事一覧の表示
+    if(window.location.pathname.endsWith('index.html')){
+        const article = document.querySelector('.mokuzi');
+        for(let i=0; i<lists.length; i++){
+            const content =
+            `<a class="articles main-color-dark" href="${lists[i].Link}.html">
+            <span class="article-title main-color-dark">${lists[i].Title}</span>
+            <span class="article-date sub-color-dark">${lists[i].Date}</span>
+            </a>`;
+            article.insertAdjacentHTML('beforeEnd',content);
+        }
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            if (btn.textContent === 'ライトモードにする') {
+                btn.textContent = 'ダークモードにする';
+                // 他の要素のクラスを置き換える
+                replaceClass('main-color-dark', 'main-color-light')
+                replaceClass('sub-color-dark', 'sub-color-light')
+                localStorage.setItem('lightmode','true')
+            } else {
+                btn.textContent = 'ライトモードにする';
+                replaceClass('main-color-light', 'main-color-dark')
+                replaceClass('sub-color-light', 'sub-color-dark')
+                localStorage.removeItem('lightmode')
+            };
+        });
     }
-);
 }
 
 if(localStorage.getItem('lightmode',true)){
