@@ -26,7 +26,7 @@ const lists=[
         Tag:'test'
     },
     {
-        Link:'test.html',
+        Link:'2つ目の記事',
         Title:'2つ目の記事',
         Date:'2024/07/01',
         Tag:'test'
@@ -53,7 +53,6 @@ if (window.location.pathname.endsWith('explore.html')) {
         article.insertAdjacentHTML('beforeEnd', content);
     });
 }
-
     // タグボタンにクリックイベントを追加
     document.querySelectorAll('.tagbtn').forEach(button => {
         button.addEventListener('click', (event) => {
@@ -83,7 +82,7 @@ btn.addEventListener('click', () => {
 if(localStorage.getItem('clickedTag')){
     const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
     localStorage.removeItem('clickedTag')
-    const article = document.querySelector('.mokuzi');
+    const article = document.querySelector('.articleList');
     // フィルタリングされたリストを生成
     const filteredLists = lists.filter(list => list.Tag === savedTag);
     // フィルタリングされた記事のみを表示
@@ -99,7 +98,7 @@ if(localStorage.getItem('clickedTag')){
 } else {
     //記事一覧の表示
     if(window.location.pathname.endsWith('index.html')){
-        const article = document.querySelector('.mokuzi');
+        const article = document.querySelector('.articleList');
         for(let i=0; i<lists.length; i++){
             const content =
             `<a class="articles main-color-dark" href="${lists[i].Link}.html">
