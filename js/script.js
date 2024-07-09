@@ -64,6 +64,22 @@ if (window.location.pathname.endsWith('explore.html')) {
     });
 });
 
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+    if (btn.textContent === 'ライトモードにする') {
+        btn.textContent = 'ダークモードにする';
+        // 他の要素のクラスを置き換える
+        replaceClass('main-color-dark', 'main-color-light')
+        replaceClass('sub-color-dark', 'sub-color-light')
+        localStorage.setItem('lightmode','true')
+    } else {
+        btn.textContent = 'ライトモードにする';
+        replaceClass('main-color-light', 'main-color-dark')
+        replaceClass('sub-color-light', 'sub-color-dark')
+        localStorage.removeItem('lightmode')
+    };
+});
+
 if(localStorage.getItem('clickedTag')){
     const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
     localStorage.removeItem('clickedTag')
@@ -92,21 +108,6 @@ if(localStorage.getItem('clickedTag')){
             </a>`;
             article.insertAdjacentHTML('beforeEnd',content);
         }
-        const btn = document.querySelector('#btn');
-        btn.addEventListener('click', () => {
-            if (btn.textContent === 'ライトモードにする') {
-                btn.textContent = 'ダークモードにする';
-                // 他の要素のクラスを置き換える
-                replaceClass('main-color-dark', 'main-color-light')
-                replaceClass('sub-color-dark', 'sub-color-light')
-                localStorage.setItem('lightmode','true')
-            } else {
-                btn.textContent = 'ライトモードにする';
-                replaceClass('main-color-light', 'main-color-dark')
-                replaceClass('sub-color-light', 'sub-color-dark')
-                localStorage.removeItem('lightmode')
-            };
-        });
     }
 }
 
