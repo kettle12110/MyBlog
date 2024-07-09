@@ -35,7 +35,7 @@ a{
 /*レイアウト*/
 .wrapper{
     max-width:1120px;
-    padding: 3rem 30rem;
+    padding: 3rem 20rem;
 }
 .cover{
     background-size:cover;
@@ -57,6 +57,17 @@ a{
     padding:1rem;
     margin-bottom:2rem;
     font-size:1rem;
+    color:#fff;
+    border-radius:8px;
+    border:0;
+    cursor:pointer;
+}
+.tagbtn{
+    background:#0bd;
+    padding:0.5rem;
+    margin-bottom:2rem;
+    margin-right:1rem;
+    font-size:100%;
     color:#fff;
     border-radius:8px;
     border:0;
