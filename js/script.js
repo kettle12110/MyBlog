@@ -45,16 +45,24 @@ const tagCounts = lists.reduce((acc, { Tag }) => {
     return acc;
 }, {});
 
-// タグボタンを作る
+// exploreにタグボタンを作る
 if (window.location.pathname.endsWith('explore.html')) {
-    const article = document.querySelector('#tagbtn');
+    const explore = document.querySelector('#tagbtn');
     Object.entries(tagCounts).forEach(([tag, count]) => {
-        const content = `<a class="tagbtn" href='index.html';">${tag} (${count})</a>`;
-        article.insertAdjacentHTML('beforeEnd', content);
+        const exploreTag = `<a class="tagbtn" href='index.html';">${tag} (${count})</a>`;
+        explore.insertAdjacentHTML('beforeEnd', exploreTag);
     });
 }
-    // タグボタンにクリックイベントを追加
-    document.querySelectorAll('.tagbtn').forEach(button => {
+
+//記事にタグボタンを作る
+if (!window.location.pathname.endsWith('index.html') && !window.location.pathname.endsWith('explore.html')) {
+const articles = document.querySelector('#tagbtn');
+const articlesTag = `<a class="tagbtn" href='index.html'>${lists[0].Tag}</a>`;
+articles.insertAdjacentHTML('beforeEnd', articlesTag);
+}
+
+// タグボタンにクリックイベントを追加
+document.querySelectorAll('.tagbtn').forEach(button => {
         button.addEventListener('click', (event) => {
             // クリックされたタグを取得
             const clickedTag = event.target.textContent.split(' ')[0];
