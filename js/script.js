@@ -72,6 +72,7 @@ document.querySelectorAll('.tagbtn').forEach(button => {
 });
 
 const btn = document.querySelector('#btn');
+if (btn !== null){
 btn.addEventListener('click', () => {
     if (btn.textContent === 'ライトモードにする') {
         btn.textContent = 'ダークモードにする';
@@ -86,6 +87,7 @@ btn.addEventListener('click', () => {
         localStorage.removeItem('lightmode')
     };
 });
+}
 
 if(localStorage.getItem('clickedTag')){
     const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
