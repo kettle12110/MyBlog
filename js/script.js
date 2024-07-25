@@ -23,27 +23,26 @@ const lists=[
         Link:'1つ目の記事',
         Title:'1つ目の記事',
         Date:'2024/06/01',
-        Tag:'test'
+        Tag:['test4','test3']
     },
     {
         Link:'2つ目の記事',
         Title:'2つ目の記事',
         Date:'2024/07/01',
-        Tag:'test'
+        Tag:['test4']
     },
     {
         Link:'test.html',
         Title:'3つ目の記事',
         Date:'2024/07/01',
-        Tag:'test2'
+        Tag:['test2']
     }
     ]
 
-// タグの数を集計する
-const tagCounts = lists.reduce((acc, { Tag }) => {
-    acc[Tag] = (acc[Tag] || 0) + 1;
-    return acc;
-}, {});
+// 一番上の要素からタグを全部取得する
+// test4 test3 test4 test2
+// test4 test3
+
 
 // exploreにタグボタンを作る
 if (window.location.pathname.endsWith('explore.html')) {
@@ -55,6 +54,10 @@ if (window.location.pathname.endsWith('explore.html')) {
 }
 
 //記事にタグボタンを作る
+const test =lists.filter(list => list.Link === location.pathname)
+console.log(test)
+
+
 if (!window.location.pathname.endsWith('index.html') && !window.location.pathname.endsWith('explore.html')) {
 const articles = document.querySelector('#tagbtn');
 const articlesTag = `<a class="tagbtn" href='index.html'>${lists[0].Tag}</a>`;
