@@ -39,18 +39,38 @@ const lists=[
     }
     ]
 
-const tagCount
+//文字列(キー):その文字列の出現数(値)　という配列を作る
 
+//入れ物
+const Tagcount= {};
 
-//output [[Tag,同じ文字列のタグの数],[Tag,同じ文字列のタグの数]]
-
+//listsの要素数まで繰り返す
+for(var i = 0;i<lists.length;i++){
+    //listsごとのTagの数まで繰り返す
+    for(var j =0;j<lists[i].Tag.length;j++){
+        //既にTagcountに同じ文字列(キー)がある？
+        if(Tagcount[lists[i].Tag[j]]){
+            //同じ文字列のTagcountの出現数(値)に1を加える
+            Tagcount[lists[i].Tag[j]]++;
+        }else{
+            //Tagcountに文字列(キー)を追加して出現数(値)に1をいれる
+            Tagcount[lists[i].Tag[j]]=1;
+        }
+        }
+    }
+console.log(Tagcount);
 
 // exploreにタグボタンを作る
+
+//ページがexplore.htmlの場合
 if (window.location.pathname.endsWith('explore.html')) {
+    //exploreに#tagbtnのエレメントを入れる
     const explore = document.querySelector('#tagbtn');
-    Object.entries(tagCounts).forEach(([tag, count]) => {
-        const exploreTag = `<a class="tagbtn" href='index.html';">${tag} (${count})</a>`;
-        explore.insertAdjacentHTML('beforeEnd', exploreTag);
+    //Tagcountの要素数だけ繰り返す
+    Object.entries(Tagcount).forEach(([tag, count]) => {
+        //タグボタンを作る
+        const exploreTag = `<a class="tagbtn" href='index.html'>${tag} (${count})</a>`;
+        explore.insertAdjacentHTML('beforeend', exploreTag);
     });
 }
 
