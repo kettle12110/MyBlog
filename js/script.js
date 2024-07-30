@@ -39,9 +39,10 @@ const lists=[
     }
     ]
 
-// 一番上の要素からタグを全部取得する
-// test4 test3 test4 test2
-// test4 test3
+const tagCount
+
+
+//output [[Tag,同じ文字列のタグの数],[Tag,同じ文字列のタグの数]]
 
 
 // exploreにタグボタンを作る
