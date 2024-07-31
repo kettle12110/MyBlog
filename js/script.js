@@ -165,6 +165,7 @@ if(localStorage.getItem('lightmode',true)){
     btn.textContent = 'ダークモードにする';
 }
 
+if (document.querySelector('#bar') !== null){
 const getScrollPercent =()=>{
     const scrolled =window.scrollY;
     const pageHeight = document.documentElement.scrollHeight;
@@ -173,3 +174,4 @@ const getScrollPercent =()=>{
     document.querySelector('#bar').style.width=`${percentage}%`;
 }
 window.addEventListener('scroll',getScrollPercent);
+}
