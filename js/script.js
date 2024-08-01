@@ -130,10 +130,10 @@ btn.addEventListener('click', () => {
 
 if(localStorage.getItem('clickedTag')){
     const savedTag = localStorage.getItem('clickedTag'); // ローカルストレージからタグを取得
-    localStorage.removeItem('clickedTag')
     const article = document.querySelector('.articleList');
     // フィルタリングされたリストを生成
-    const filteredLists = lists.filter(list => list.Tag === savedTag);
+    const filteredLists = lists.filter(list => list.Tag.includes(savedTag));
+    localStorage.removeItem('clickedTag')
     // フィルタリングされた記事のみを表示
     filteredLists.forEach(list => {
         const content =
@@ -143,7 +143,7 @@ if(localStorage.getItem('clickedTag')){
         </a>`;
         article.insertAdjacentHTML('beforeEnd', content);
     });
-    localStorage.removeItem('clickedTag');
+
 } else {
     //記事一覧の表示
     if(window.location.pathname.endsWith('index.html')){
