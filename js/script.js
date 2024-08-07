@@ -29,7 +29,7 @@ const lists=[
         Link:'2つ目の記事',
         Title:'2つ目の記事',
         Date:'2024/07/01',
-        Tag:['test4']
+        Tag:['test3']
     },
     {
         Link:'test.html',
@@ -42,16 +42,17 @@ const lists=[
 //Tagname:Tagの文字列,Tagvalue:その文字列の出現数　という配列を作る
 
 //入れ物
-const Tagcount= {};
+const Tagcount= [];
 
 //listsの要素数まで繰り返す
 for(var i = 0;i<lists.length;i++){
     //listsごとのTagの数まで繰り返す
     for(var j =0;j<lists[i].Tag.length;j++){
         //既にTagcountに同じ文字列(キー)がある？
-        if(Tagcount[lists[i].Tag[j]]){
+        const findTag = Tagcount.find(item => item.Tagname===lists[i].Tag[j])
+        if(findTag){
             //同じ文字列のTagcountの出現数(値)に1を加える
-            Tagcount[lists[i].Tag[j]]++;
+            findTag.Tagvalue++;
         }else{
             //Tagcountに文字列(キー)を追加して出現数(値)に1をいれる
             Tagcount.push({Tagname:lists[i].Tag[j],Tagvalue:1})
@@ -60,6 +61,14 @@ for(var i = 0;i<lists.length;i++){
     }
 console.log(Tagcount);
 
+//タグをソートする
+//ソートのための関数を追加
+function compareFunc(a, b) {
+    return b.Tagvalue - a.Tagvalue;
+  }
+//ソート
+Tagcount.sort(compareFunc);
+
 // exploreにタグボタンを作る
 
 //ページがexplore.htmlの場合
@@ -67,9 +76,9 @@ if (window.location.pathname.endsWith('explore.html')) {
     //exploreに#tagbtnのエレメントを入れる
     const explore = document.querySelector('#tagbtn');
     //Tagcountの要素数だけ繰り返す
-    Object.entries(Tagcount).forEach(([tag, count]) => {
+    Tagcount.forEach(({ Tagname, Tagvalue }) => {
         //タグボタンを作る
-        const exploreTag = `<a class="tagbtn" href='index.html'>${tag} (${count})</a>`;
+        const exploreTag = `<a class="tagbtn" href='index.html'>${Tagname} (${Tagvalue})</a>`;
         explore.insertAdjacentHTML('beforeend', exploreTag);
     });
 }
