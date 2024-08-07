@@ -39,7 +39,7 @@ const lists=[
     }
     ]
 
-//文字列(キー):その文字列の出現数(値)　という配列を作る
+//Tagname:Tagの文字列,Tagvalue:その文字列の出現数　という配列を作る
 
 //入れ物
 const Tagcount= {};
@@ -54,10 +54,11 @@ for(var i = 0;i<lists.length;i++){
             Tagcount[lists[i].Tag[j]]++;
         }else{
             //Tagcountに文字列(キー)を追加して出現数(値)に1をいれる
-            Tagcount[lists[i].Tag[j]]=1;
+            Tagcount.push({Tagname:lists[i].Tag[j],Tagvalue:1})
         }
         }
     }
+console.log(Tagcount);
 
 // exploreにタグボタンを作る
 
