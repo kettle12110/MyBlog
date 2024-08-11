@@ -149,7 +149,7 @@ if (localStorage.getItem("clickedTag")) {
   });
 } else {
   //記事一覧の表示
-  if (window.location.pathname.endsWith("index.html")) {
+  if (document.querySelector(".articleList") !== null) {
     const article = document.querySelector(".articleList");
     for (let i = 0; i < lists.length; i++) {
       const content = `<a class="articles main-color-dark" href="${lists[i].Link}.html">
