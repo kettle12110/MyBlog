@@ -58,7 +58,6 @@ for (var i = 0; i < lists.length; i++) {
     }
   }
 }
-console.log(Tagcount);
 
 //タグをソートする
 //ソートのための関数を追加
@@ -84,23 +83,19 @@ if (window.location.pathname.endsWith("explore.html")) {
 
 //記事にタグボタンを作る
 if (
-  !window.location.pathname.endsWith("index.html") &&
-  !window.location.pathname.endsWith("explore.html")
+  (document.querySelector(".article") !== null)
 ) {
   //urlを取得する
   const currentPageUrl = window.location.href;
   //%%とかで取得されるので日本語に直す
   const decodedUrl = decodeURI(currentPageUrl);
-  console.log(decodedUrl);
   //listsを今表示しているページのLINKが含まれる要素のみに絞り込む
   const currentPagelists = lists.filter((value) => {
     return decodedUrl.includes(value.Link);
   });
 
-  console.log(currentPagelists);
   //今表示しているページのタグの数を取得する
   const articleTagCount = currentPagelists[0].Tag.length;
-  console.log(articleTagCount);
   //今表示しているページのタグの数繰り返す
   for (var i = 0; i < articleTagCount; i++) {
     //htmlにタグボタンを入れる
